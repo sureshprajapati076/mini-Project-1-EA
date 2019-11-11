@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mysql-mini-proj:
+    image: mysql:latest
+    restart: always
+    container_name: mysql-mini-proj
+    environment:
+      - MYSQL_ROOT_PASSWORD=root1234!
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root1234!
+    volumes:
+      - /data/mysql
+  server:
+    image: miniprojec
+    container_name: server_start
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-mini-proj
+    ports:
+      - 8085:8085
+    volumes:
+      - /data/miniproject

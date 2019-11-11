@@ -1,0 +1,24 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div><a href="#" class="navbar-brand">Mini-Proj 1</a></div>
+
+    <ul class="navbar-nav" style="cursor: pointer;">
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <li *ngIf="loginService.isUserLoggedIn()" (click)="logOut()" class="nav-link">LogOut</li>
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/signup" class="nav-link">Sign Up</a></li>
+      <li class="nav-link"><span style="cursor:auto;">Loggedin As:</span> {{loginService.getUserName()}}</li>
+
+
+
+
+
+
+    </ul>
+
+
+
+
+
+  </nav>
+
+</header>
